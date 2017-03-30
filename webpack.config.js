@@ -1,3 +1,5 @@
+import webpack from 'webpack'
+
 module.exports = {
   entry: './app.js',
   output: {
@@ -18,6 +20,14 @@ module.exports = {
           }
         }
       }
+    ],
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': Object.keys(process.env).reduce((acc, key) => {
+          acc[key] = JSON.stringify(process.env[key])
+          return acc
+        }, {})
+      })
     ]
   }
 }

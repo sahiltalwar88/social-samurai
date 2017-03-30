@@ -1,0 +1,6 @@
+{
+  "name": "Lanetix Spaces Sample",
+  "description": "A barebones Node.js app using Express 4",
+  "logo": "http://www.lanetix.com/wp-content/themes/lanetix-2017/img/logo.svg",
+  "keywords": ["lanetix"]
+}
