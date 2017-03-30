@@ -1,7 +1,7 @@
-import webpack from 'webpack'
+const webpack = require('webpack')
 
 module.exports = {
-  entry: './app.js',
+  entry: './app/index.js',
   output: {
     filename: 'bundle.js'
   },
@@ -20,14 +20,14 @@ module.exports = {
           }
         }
       }
-    ],
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env': Object.keys(process.env).reduce((acc, key) => {
-          acc[key] = JSON.stringify(process.env[key])
-          return acc
-        }, {})
-      })
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': Object.keys(process.env).reduce((acc, key) => {
+        acc[key] = JSON.stringify(process.env[key])
+        return acc
+      }, {})
+    })
+  ]
 }
