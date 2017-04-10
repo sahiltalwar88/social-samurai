@@ -9,7 +9,7 @@ import thunk from 'redux-thunk'
 import { contentId } from './config'
 import Item from './item'
 import List from './list'
-import reducer from './reducer'
+import reducer from './reducers'
 
 const store = createStore(
   reducer,
