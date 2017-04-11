@@ -6,13 +6,13 @@ import { Provider } from 'react-redux'
 import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 
-import { contentId } from './config'
-import Item from './item'
-import List from './list'
-import reducer from './reducers'
+import '@lanetix/unum/lib/css/index.css'
+
+import reducers from './reducers'
+import SearchTerm from './search-term'
 
 const store = createStore(
-  reducer,
+  reducers,
   compose(
     applyMiddleware(thunk),
     window.devToolsExtension
@@ -24,9 +24,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     {
-      contentId
-        ? <Item id={contentId} />
-        : <List />
+      <SearchTerm />
     }
   </Provider>,
   document.getElementById('root')

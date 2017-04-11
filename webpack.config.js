@@ -5,6 +5,7 @@ module.exports = {
   output: {
     filename: 'bundle.js'
   },
+  devtool: 'cheap-source-map',
   module: {
     rules: [
       {
@@ -19,6 +20,13 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   },
