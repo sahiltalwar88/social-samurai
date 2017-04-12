@@ -18,7 +18,9 @@ export const fetchSearchTerm = () => async (dispatch) => {
   const headers = { headers: { Authorization: `Bearer ${jwt}` } }
   const { data } = await axios.get(requestUrl, headers)
 
-  dispatch({ type: SET_SEARCH_TERM, searchTerm: getSearchTermFromResponse(head(data)) })
+  const searchTerm = getSearchTermFromResponse(head(data))
+  window.searchTerm = searchTerm.searchTerm
+  dispatch({ type: SET_SEARCH_TERM, searchTerm })
 }
 
 export const setSearchTerm = (contentId, searchTerm) => async (dispatch) => {

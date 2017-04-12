@@ -38,3 +38,8 @@ jspm_packages
 
 # compiled bundle
 bundle.js
+
+# sooper sekret keys/tokens
+.env
+sooper-sekret
+sooper-sekret.pub
