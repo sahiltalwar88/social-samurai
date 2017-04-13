@@ -1,13 +1,13 @@
-import { FETCH_TWEETS } from '../actions'
+import { FETCH_TWEETS, SET_TWEETS } from '../action-creators'
 
-const INITIAL_STATE = Object.freeze({ contentId: undefined, searchTerm: '' })
+const INITIAL_STATE = Object.freeze([])
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SET_SEARCH_TERM:
-      return action.searchTerm
-    case CLEAR_SEARCH_TERM:
+    case FETCH_TWEETS:
       return INITIAL_STATE
+    case SET_TWEETS:
+      return action.tweets
     default:
       return state
   }

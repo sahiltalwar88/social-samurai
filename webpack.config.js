@@ -1,11 +1,14 @@
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './app/index.js',
   output: {
-    filename: 'bundle.js'
+    path: __dirname,
+    filename: 'bundle.js',
+    publicPath: '/index'
   },
-  devtool: 'cheap-source-map',
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -39,11 +42,14 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': Object.keys(process.env).reduce((acc, key) => {
-        acc[key] = JSON.stringify(process.env[key])
-        return acc
-      }, {})
+    // Never intendend to be used outside of a POC
+    new webpack.EnvironmentPlugin(Object.assign({}, process.env, { NODE_ENV: 'development' })),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      inject: 'body',
+      filename: 'index.html'
     })
   ]
 }

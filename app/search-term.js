@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { FormControls } from '@lanetix/unum'
 
-import { fetchSearchTerm, setSearchTerm } from './actions'
+import { fetchSearchTerm, setSearchTerm } from './action-creators'
 
 class SearchTerm extends Component {
   constructor () {
@@ -34,15 +34,17 @@ class SearchTerm extends Component {
 
   render () {
     const searchTerm = this.state.searchTerm || this.props.searchTerm
-    return <FormControls.Text autoFocus block={false} label='Search Term'
-      onChange={this.onChange.bind(this)} onKeyUp={this.updateSearchTerm.bind(this)} value={searchTerm} />
+    return (
+      <FormControls.Text autoFocus block={false} label='Search Term'
+        onChange={this.onChange.bind(this)} onKeyUp={this.updateSearchTerm.bind(this)} value={searchTerm} />
+    )
   }
 }
 
 SearchTerm.propTypes = {
-  contentId: PropTypes.number.isRequired,
+  contentId: PropTypes.number,
   setSearchTerm: PropTypes.func.isRequired,
-  searchTerm: PropTypes.string.isRequired
+  searchTerm: PropTypes.string
 }
 
 export default connect(

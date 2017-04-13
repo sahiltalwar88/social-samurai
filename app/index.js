@@ -10,7 +10,7 @@ import '@lanetix/unum/lib/css/index.css'
 
 import reducers from './reducers'
 import SearchTerm from './search-term'
-import Tweets from './tweets'
+import SearchResults from './search-results'
 
 const store = createStore(
   reducers,
@@ -26,7 +26,7 @@ ReactDOM.render(
   <Provider store={store}>
     <div>
       <SearchTerm />
-      <Tweets />
+      <SearchResults />
     </div>
   </Provider>,
   document.getElementById('root')

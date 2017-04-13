@@ -1,4 +1,4 @@
-import { CLEAR_SEARCH_TERM, SET_SEARCH_TERM } from '../actions'
+import { CLEAR_SEARCH_TERM, SET_SEARCH_TERM } from '../action-creators'
 
 const INITIAL_STATE = Object.freeze({ contentId: undefined, searchTerm: '' })
 
